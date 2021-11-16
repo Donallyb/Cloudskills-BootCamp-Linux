@@ -15,6 +15,8 @@ azureuser@LinuxVM03:~$ sudo parted /dev/sdb --script mklabel gpt mkpart xfspart 
 $osdiskid = (az vm show -g CSBOOTCAMPLINUXLAB3 -n LinuxVM03 --query "storageProfile.osDisk.managedDisk.id" -o tsv)
 az snapshot create --resource-group CSBOOTCAMPLINUXLAB3 --source "$osdiskid" --name osDisk-backup16112021
 az snapshot create --resource-group CSBOOTCAMPLINUXLAB3 --source $osdiskid --name osDisk-backup16112021 --copy-start false
+8. Clean-up Resources
+az group delete --name cslinuxbootcamplab3
 
 
 ### Notes:
